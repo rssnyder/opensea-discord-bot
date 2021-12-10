@@ -25,7 +25,7 @@ jobs:
       run: yarn ts-node ./checkSales.ts
       env:
         CONTRACT_ADDRESS: '0xc92ceddfb8dd984a89fb494c376f9a48b999aafc'
-        COLLECTION_SLUG: creature-world-collection
+        COLLECTION_SLUG: creatureworld
         DISCORD_CHANNEL_ID: '879094113289519174;905196144169222245'
     
     - run: sleep 5
