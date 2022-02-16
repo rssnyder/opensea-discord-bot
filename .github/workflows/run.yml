@@ -37,7 +37,8 @@ jobs:
         COLLECTION_SLUG: doodles-official
         DISCORD_CHANNEL_ID: '879094113289519174;905196184992354344'
         
-    - run: echo "last_update{repo=\"$GITHUB_REPOSITORY\",client=\"mastablasta\"} $(date +%s)" | curl -u metrics:$METRICS_PASSWORD --data-binary @- https://pushmetrics.rileysnyder.org/metrics/job/github_actions/instance/github
+    - name: metrics
+      run: echo "last_update{repo=\"$GITHUB_REPOSITORY\",client=\"mastablasta\"} $(date +%s)" | curl -u metrics:$METRICS_PASSWORD --data-binary @- https://pushmetrics.rileysnyder.org/metrics/job/github_actions/instance/github
       env:
         METRICS_PASSWORD: ${{ secrets.METRICS_PASSWORD }}
         
@@ -58,7 +59,8 @@ jobs:
         COLLECTION_SLUG: wilderworld
         DISCORD_CHANNEL_ID: '879094113289519174;905543563461410847'
     
-    - run: echo "last_update{repo=\"$GITHUB_REPOSITORY\",client=\"wilder\"} $(date +%s)" | curl -u metrics:$METRICS_PASSWORD --data-binary @- https://pushmetrics.rileysnyder.org/metrics/job/github_actions/instance/github
+    - name: metrics
+      run: echo "last_update{repo=\"$GITHUB_REPOSITORY\",client=\"wilder\"} $(date +%s)" | curl -u metrics:$METRICS_PASSWORD --data-binary @- https://pushmetrics.rileysnyder.org/metrics/job/github_actions/instance/github
       env:
         METRICS_PASSWORD: ${{ secrets.METRICS_PASSWORD }}
 
