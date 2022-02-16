@@ -37,6 +37,10 @@ jobs:
         COLLECTION_SLUG: doodles-official
         DISCORD_CHANNEL_ID: '879094113289519174;905196184992354344'
         
+    - run: echo "last_update{repo=\"$GITHUB_REPOSITORY\",client=\"mastablasta\"} $(date +%s)" | curl -u metrics:$METRICS_PASSWORD --data-binary @- https://pushmetrics.rileysnyder.org/metrics/job/github_actions/instance/github
+      env:
+        METRICS_PASSWORD: ${{ secrets.METRICS_PASSWORD }}
+        
   wilder:
     runs-on: ubuntu-latest
     steps:
@@ -53,6 +57,10 @@ jobs:
         CONTRACT_ADDRESS: '0xc2e9678a71e50e5aed036e00e9c5caeb1ac5987d'
         COLLECTION_SLUG: wilderworld
         DISCORD_CHANNEL_ID: '879094113289519174;905543563461410847'
+    
+    - run: echo "last_update{repo=\"$GITHUB_REPOSITORY\",client=\"wilder\"} $(date +%s)" | curl -u metrics:$METRICS_PASSWORD --data-binary @- https://pushmetrics.rileysnyder.org/metrics/job/github_actions/instance/github
+      env:
+        METRICS_PASSWORD: ${{ secrets.METRICS_PASSWORD }}
 
   # boredapeyachtclub:
   #   runs-on: ubuntu-latest
